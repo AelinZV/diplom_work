@@ -21,13 +21,15 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.greenplanner.data.local.TaskEntity
 import com.example.greenplanner.ui.tasks.TaskViewModel
+import com.example.greenplanner.ui.places.PlacesViewModel
+import com.example.greenplanner.ui.places.PlacesScreen
 import com.example.greenplanner.ui.theme.GreenPlannerTheme
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 private enum class Screen(val caption: String, val symbol: String) {
-    TODAY("Сегодня", "⌂"), ALL("Задачи", "▦"), ASSISTANT("Ассистент", "✦"), SETTINGS("Настройки", "⚙")
+    TODAY("Сегодня", "⌂"), ALL("Задачи", "▦"), ASSISTANT("Ассистент", "✦"), SETTINGS("Мои места", "⌖")
 }
 
 class MainActivity : ComponentActivity() {
@@ -39,8 +41,9 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun PlannerApp(vm: TaskViewModel = viewModel()) {
+private fun PlannerApp(vm: TaskViewModel = viewModel(), placesVm: PlacesViewModel = viewModel()) {
     val tasks by vm.tasks.collectAsStateWithLifecycle()
+    val places by placesVm.places.collectAsStateWithLifecycle()
     var activeScreen by remember { mutableStateOf(Screen.TODAY) }
     var editing by remember { mutableStateOf<TaskEntity?>(null) }
     var showEditor by remember { mutableStateOf(false) }
@@ -104,7 +107,7 @@ private fun PlannerApp(vm: TaskViewModel = viewModel()) {
                     )
                 }
                 Screen.ASSISTANT -> InfoScreen("ИИ-ассистент", "Добавим голосовой ввод и распознавание команд на следующем этапе.")
-                Screen.SETTINGS -> InfoScreen("Мои места", "Позже добавим дом, работу и геозависимые уведомления.")
+                Screen.SETTINGS -> PlacesScreen(places = places, onSave = placesVm::save, onDelete = placesVm::delete)
             }
         }
     }

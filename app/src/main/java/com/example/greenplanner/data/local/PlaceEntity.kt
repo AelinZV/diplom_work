@@ -9,5 +9,7 @@ data class PlaceEntity(
     val name: String,
     val latitude: Double,
     val longitude: Double,
-    val radiusMeters: Int = 1000
+    val radiusMeters: Int = 1000,
+    val address: String = "",
+    val detail: String = ""
 )

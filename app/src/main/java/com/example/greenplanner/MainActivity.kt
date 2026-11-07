@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -20,6 +22,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.greenplanner.data.local.TaskEntity
+import com.example.greenplanner.data.local.PlaceEntity
+import com.example.greenplanner.data.local.LocationReminderEntity
 import com.example.greenplanner.ui.tasks.TaskViewModel
 import com.example.greenplanner.ui.places.PlacesViewModel
 import com.example.greenplanner.ui.places.PlacesScreen
@@ -44,6 +48,7 @@ class MainActivity : ComponentActivity() {
 private fun PlannerApp(vm: TaskViewModel = viewModel(), placesVm: PlacesViewModel = viewModel()) {
     val tasks by vm.tasks.collectAsStateWithLifecycle()
     val places by placesVm.places.collectAsStateWithLifecycle()
+    val reminders by vm.reminders.collectAsStateWithLifecycle()
     var activeScreen by remember { mutableStateOf(Screen.TODAY) }
     var editing by remember { mutableStateOf<TaskEntity?>(null) }
     var showEditor by remember { mutableStateOf(false) }
@@ -85,7 +90,8 @@ private fun PlannerApp(vm: TaskViewModel = viewModel(), placesVm: PlacesViewMode
                     emptyText = "Сегодня задач пока нет",
                     onToggle = vm::toggle,
                     onDelete = vm::delete,
-                    onEdit = { editing = it; showEditor = true }
+                    onEdit = { editing = it; showEditor = true },
+                    reminders = reminders, places = places
                 )
                 Screen.ALL -> Column {
                     // Календарный выбор дня; задачи можно открыть также по кнопке «Все».
@@ -103,11 +109,13 @@ private fun PlannerApp(vm: TaskViewModel = viewModel(), placesVm: PlacesViewMode
                         emptyText = "Нет задач для отображения",
                         onToggle = vm::toggle,
                         onDelete = vm::delete,
-                        onEdit = { editing = it; showEditor = true }
+                        onEdit = { editing = it; showEditor = true },
+                        reminders = reminders, places = places
                     )
                 }
                 Screen.ASSISTANT -> InfoScreen("ИИ-ассистент", "Добавим голосовой ввод и распознавание команд на следующем этапе.")
-                Screen.SETTINGS -> PlacesScreen(places = places, onSave = placesVm::save, onDelete = placesVm::delete)
+                Screen.SETTINGS -> PlacesScreen(places = places, onSave = placesVm::save, onDelete = placesVm::delete,
+                    monitoringMessage = vm.monitoringMessage, onRecheck = vm::refreshGeofences)
             }
         }
     }
@@ -115,8 +123,10 @@ private fun PlannerApp(vm: TaskViewModel = viewModel(), placesVm: PlacesViewMode
     if (showEditor) {
         TaskEditorDialog(
             initial = editing,
+            initialReminder = reminders.firstOrNull { it.taskId == editing?.id },
+            places = places,
             onDismiss = { showEditor = false },
-            onSave = { vm.save(it); showEditor = false }
+            onSave = { task, placeId, transition -> vm.save(task, placeId, transition); showEditor = false }
         )
     }
 }
@@ -129,7 +139,9 @@ private fun TaskOverview(
     emptyText: String,
     onToggle: (TaskEntity) -> Unit,
     onDelete: (TaskEntity) -> Unit,
-    onEdit: (TaskEntity) -> Unit
+    onEdit: (TaskEntity) -> Unit,
+    reminders: List<LocationReminderEntity>,
+    places: List<PlaceEntity>
 ) {
     Column(Modifier.fillMaxSize().padding(horizontal = 20.dp)) {
         Spacer(Modifier.height(12.dp))
@@ -152,7 +164,8 @@ private fun TaskOverview(
         if (tasks.isEmpty()) Text(emptyText, color = MaterialTheme.colorScheme.onSurfaceVariant)
         else LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp)) {
             items(tasks, key = { it.id }) { task ->
-                TaskCard(task, { onToggle(task) }, { onEdit(task) }, { onDelete(task) })
+                TaskCard(task, { onToggle(task) }, { onEdit(task) }, { onDelete(task) },
+                    reminders.firstOrNull { it.taskId == task.id }, places)
             }
             item { Spacer(Modifier.height(88.dp)) }
         }
@@ -160,7 +173,10 @@ private fun TaskOverview(
 }
 
 @Composable
-private fun TaskCard(task: TaskEntity, onToggle: () -> Unit, onEdit: () -> Unit, onDelete: () -> Unit) {
+private fun TaskCard(
+    task: TaskEntity, onToggle: () -> Unit, onEdit: () -> Unit, onDelete: () -> Unit,
+    reminder: LocationReminderEntity?, places: List<PlaceEntity>
+) {
     Card(
         shape = RoundedCornerShape(18.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
@@ -172,6 +188,11 @@ private fun TaskCard(task: TaskEntity, onToggle: () -> Unit, onEdit: () -> Unit,
                 Text(task.title, fontWeight = FontWeight.SemiBold,
                     textDecoration = if (task.completed) TextDecoration.LineThrough else TextDecoration.None)
                 if (task.note.isNotBlank()) Text(task.note, style = MaterialTheme.typography.bodySmall)
+                if (reminder != null) {
+                    val place = places.firstOrNull { it.id == reminder.placeId }
+                    Text("📍 ${place?.name ?: "Место удалено"} • ${if (reminder.transition == 2) "при выходе" else "при входе"}${if (reminder.fired) " • сработало" else ""}",
+                        style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
+                }
                 Text("${task.date} • ${task.category} • ${priorityName(task.priority)}",
                     style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
@@ -187,20 +208,25 @@ private fun priorityName(value: Int) = when(value) { 0 -> "Низкий"; 2 -> "
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TaskEditorDialog(initial: TaskEntity?, onDismiss: () -> Unit, onSave: (TaskEntity) -> Unit) {
+private fun TaskEditorDialog(
+    initial: TaskEntity?, initialReminder: LocationReminderEntity?, places: List<PlaceEntity>,
+    onDismiss: () -> Unit, onSave: (TaskEntity, Long?, Int) -> Unit
+) {
     var title by remember(initial?.id) { mutableStateOf(initial?.title.orEmpty()) }
     var note by remember(initial?.id) { mutableStateOf(initial?.note.orEmpty()) }
     var dateText by remember(initial?.id) { mutableStateOf(initial?.date ?: LocalDate.now().toString()) }
     var category by remember(initial?.id) { mutableStateOf(initial?.category ?: "Личное") }
     var priority by remember(initial?.id) { mutableIntStateOf(initial?.priority ?: 1) }
     var dateError by remember(initial?.id) { mutableStateOf(false) }
+    var selectedPlaceId by remember(initial?.id) { mutableStateOf<Long?>(initialReminder?.placeId) }
+    var transition by remember(initial?.id) { mutableIntStateOf(initialReminder?.transition ?: 1) }
     val categories = listOf("Личное", "Учёба", "Работа", "Здоровье", "Покупки")
 
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(if (initial == null) "Новая задача" else "Редактирование") },
         text = {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 OutlinedTextField(value = title, onValueChange = { title = it }, label = { Text("Название") },
                     singleLine = true, modifier = Modifier.fillMaxWidth())
                 OutlinedTextField(value = note, onValueChange = { note = it }, label = { Text("Описание") },
@@ -228,6 +254,33 @@ private fun TaskEditorDialog(initial: TaskEntity?, onDismiss: () -> Unit, onSave
                         Spacer(Modifier.width(2.dp))
                     }
                 }
+                Spacer(Modifier.height(4.dp))
+                Text("Геонапоминание", fontWeight = FontWeight.SemiBold)
+                var placeMenuOpen by remember { mutableStateOf(false) }
+                Box {
+                    OutlinedButton(onClick = { placeMenuOpen = true }) {
+                        Text(places.firstOrNull { it.id == selectedPlaceId }?.name ?: "Без геонапоминания")
+                    }
+                    DropdownMenu(expanded = placeMenuOpen, onDismissRequest = { placeMenuOpen = false }) {
+                        DropdownMenuItem(text = { Text("Без геонапоминания") },
+                            onClick = { selectedPlaceId = null; placeMenuOpen = false })
+                        places.forEach { place ->
+                            DropdownMenuItem(text = { Text(place.name) },
+                                onClick = { selectedPlaceId = place.id; placeMenuOpen = false })
+                        }
+                    }
+                }
+                if (selectedPlaceId != null) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        FilterChip(selected = transition == 1, onClick = { transition = 1 }, label = { Text("При входе") })
+                        FilterChip(selected = transition == 2, onClick = { transition = 2 }, label = { Text("При выходе") })
+                    }
+                    Text("После срабатывания напоминание отключится. Для повторного включения отредактируйте и сохраните задачу.",
+                        style = MaterialTheme.typography.bodySmall)
+                } else if (places.isEmpty()) {
+                    Text("Для геонапоминаний сначала добавьте точку в разделе «Мои места».",
+                        style = MaterialTheme.typography.bodySmall)
+                }
             }
         },
         confirmButton = {
@@ -238,7 +291,7 @@ private fun TaskEditorDialog(initial: TaskEntity?, onDismiss: () -> Unit, onSave
                     id = initial?.id ?: 0L, title = title.trim(), note = note.trim(),
                     date = parsed.toString(), category = category, priority = priority,
                     completed = initial?.completed ?: false
-                ))
+                ), selectedPlaceId, transition)
             }) { Text("Сохранить") }
         },
         dismissButton = { TextButton(onClick = onDismiss) { Text("Отмена") } }

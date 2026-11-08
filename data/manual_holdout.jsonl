@@ -1,0 +1,120 @@
+{"id": "manual-create_task-00", "text": "Слушай, в пятницу надо сдать лабораторную, добавь мне такое дело.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-01", "text": "Запиши: до выходных разобраться с отчётом по практике.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-02", "text": "Я тут вспомнил, что обещал заехать за посылкой, внеси это в задачи.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-03", "text": "Добавь в мой список пункт: сверить данные в таблице с оригиналом.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-04", "text": "Не хочу держать в голове, запланируй оплату парковки завтра.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-05", "text": "Поставь в план на вечер проверить новую версию приложения.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-06", "text": "Надо бы починить кран, давай запишем отдельным делом.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-07", "text": "Создай мне пункт про запись к зубному, срок пока не важен.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-08", "text": "А давай добавим на субботу покупку корма для питомца.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-09", "text": "Я же говорил, что хочу заняться страховкой — добавь задачу.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-10", "text": "Составь мне дело на понедельник: отнести оригиналы документов.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_task-11", "text": "У меня теперь ещё одно дело появилось, нужно отвезти ноутбук в сервис. Запиши.", "intent": "CREATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-00", "text": "Перенеси встречу с преподавателем на пятницу.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-01", "text": "Не получится сегодня с тренером, поставь занятие на четверг.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-02", "text": "Мне надо поменять дедлайн диплома, пусть будет через неделю.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-03", "text": "Сдача отчёта теперь во вторник, а не в понедельник. Исправь.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-04", "text": "Слушай, по лабораторной поменялись планы, сделай срок 20 ноября.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-05", "text": "Я сегодня не дойду до банка, передвинь эту задачу на завтра.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-06", "text": "Запись к врачу переносится с утра на 16:30.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-07", "text": "Я ошибся: не в 17, а в 19 часов встречаемся. Измени время встречи.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-08", "text": "Поменяй дату поездки к родителям на следующий выходной.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-09", "text": "Переставь тренировку с пятницы на воскресенье, пожалуйста.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-10", "text": "Эту задачу с оплатой аренды надо сделать раньше, поставь на среду.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-update_task-11", "text": "Давай отложим поход в магазин: лучше в понедельник.", "intent": "UPDATE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-00", "text": "Можешь убрать ту старую задачу про страховой полис?", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-01", "text": "Отмени мне тренировку из списка, я уже не пойду.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-02", "text": "Запись про ремонт кухни была ошибкой, удали её.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-03", "text": "Выкини задачу с заказом цветов, она теперь не нужна.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-04", "text": "Я передумал насчёт похода в бассейн, убери это дело.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-05", "text": "Не нужно больше хранить пункт про уборку гаража.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-06", "text": "Удали только напоминание про стирку, саму задачу тоже убери.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-07", "text": "Сотри из моего списка дело про покупку билетов.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-08", "text": "Тот созвон отменился окончательно, можно вычеркнуть его.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-09", "text": "Всё, тему с новыми наушниками закрываем, удаляй задачу.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-10", "text": "Случайно записал дважды проверку почты, один пункт удали.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-delete_task-11", "text": "Убери из расписания визит к мастеру, я отказался.", "intent": "DELETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-00", "text": "Поставь галочку на задаче с отчётом, я его сдал.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-01", "text": "Забрал посылку, можно считать дело завершённым.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-02", "text": "Уборку в комнате закончил, отметь в списке.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-03", "text": "Отправил преподавателю письмо, пометь этот пункт готовым.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-04", "text": "Всё, с дипломной презентацией разобрался, закрывай задачу.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-05", "text": "Ну что, можно убрать оплату электричества из невыполненных.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-06", "text": "Покупку продуктов выполнил, поставь соответствующую отметку.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-07", "text": "Я уже заехал в аптеку, пометь задачу сделанной.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-08", "text": "Пункт про обновление резюме закрыл, зафиксируй выполнение.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-09", "text": "Проверку автомобиля завершил, сделай статус выполнено.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-10", "text": "Закончил регистрацию, отмечай как готовое.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-complete_task-11", "text": "Супер, экзаменационные билеты повторил, галочку поставь.", "intent": "COMPLETE_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-00", "text": "Слушай, какие у меня ещё висят невыполненные дела?", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-01", "text": "Покажи всё, что я на сегодня себе записал.", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-02", "text": "Не помню, какие задачи остались, открой список.", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-03", "text": "Что мне ещё нужно успеть до конца недели из запланированного?", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-04", "text": "Есть что-то срочное в моём списке дел?", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-05", "text": "Выведи только невыполненные пункты, без уже закрытых.", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-06", "text": "Какие задачи по учёбе я ещё не закрыл?", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-07", "text": "Я могу посмотреть всё, что добавлял вчера в планировщик?", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-08", "text": "Хочу список дел на завтра, просто списком.", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-09", "text": "Напомни названия моих текущих задач без изменения сроков.", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-10", "text": "Сколько задач ещё осталось выполнить на этой неделе?", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_tasks-11", "text": "Можешь вывести все активные задачи по работе?", "intent": "GET_TASKS", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-00", "text": "Напомни купить молоко, когда буду возле дома.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-01", "text": "С работы поеду к родителям, и как буду рядом с их домом, пни купить лекарства.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-02", "text": "Не забудь сообщить мне вечером, что надо снять бельё с сушилки.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-03", "text": "Хочу уведомление, когда выйду из офиса: забрать коробку из машины.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-04", "text": "Когда подъеду к университету, дай знать, что нужно отдать тетрадь.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-05", "text": "Как только окажусь у дома после смены, напомни зайти за хлебом.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-06", "text": "Сделай напоминалку на завтра к восьми утра: позвонить курьеру.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-07", "text": "Если буду около аптеки, напомни проверить, есть ли дома пластырь.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-08", "text": "После пар напомни забрать ключи по дороге к дому.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-09", "text": "Когда буду возвращаться с тренировки, напомни зайти за водой.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-10", "text": "Разбуди уведомлением в 7:30, нужно подготовить документы.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-create_reminder-11", "text": "Хочу, чтобы телефон дал сигнал на подходе к магазину: купить батарейки.", "intent": "CREATE_REMINDER", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-00", "text": "Найди ближайший спортивный зал.", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-01", "text": "Где тут неподалёку круглосуточная аптека?", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-02", "text": "Посмотри, какие фитнес-клубы есть возле моего дома.", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-03", "text": "Есть рядом с работой пункт выдачи посылок?", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-04", "text": "Мне нужен банкомат без долгой дороги, покажи на карте.", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-05", "text": "Подскажи, где находится ближайший магазин инструментов.", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-06", "text": "Хочу сходить на тренировку, поищи залы в этом районе.", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-07", "text": "Где купить корм рядом с остановкой? Поищи зоомагазин.", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-08", "text": "А есть поблизости какое-нибудь кафе с завтраками?", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-09", "text": "Можешь найти аптеку по дороге от универа домой?", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-10", "text": "Посмотри на 2ГИС, какие бассейны есть вокруг.", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-find_place-11", "text": "Не знаю, куда идти стричься, найди парикмахерскую неподалёку.", "intent": "FIND_PLACE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-00", "text": "Сколько свободных часов у меня останется завтра после обеда?", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-01", "text": "Есть ли у меня окно между парами и тренировкой?", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-02", "text": "Глянь календарь: в пятницу я вообще свободен вечером?", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-03", "text": "Помоги понять, когда у меня на неделе меньше всего занятости.", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-04", "text": "Не пересекается ли встреча с врачом с моей работой?", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-05", "text": "Мне нужно свободное время для созвона, поищи окно в расписании.", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-06", "text": "Могу я завтра поставить часовую тренировку по своему графику?", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-07", "text": "Составь мне обзор дня по часам, без списка отдельных задач.", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-08", "text": "Как выглядит расписание на следующую рабочую неделю?", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-09", "text": "Во сколько у меня заканчиваются запланированные события в четверг?", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-10", "text": "Покажи, насколько забит вечер среды.", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-get_schedule-11", "text": "Если судить по календарю, когда лучше заняться дипломом?", "intent": "GET_SCHEDULE", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-00", "text": "Хочу закончить диплом, но не понимаю, с чего вообще начать. Разбей на этапы.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-01", "text": "Помоги по шагам подготовиться к экзамену, а то объём огромный.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-02", "text": "Составь чек-лист для переезда, чтобы ничего не забыть.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-03", "text": "Надо привести квартиру в порядок, раздели уборку на мелкие дела.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-04", "text": "Мне тяжело подступиться к отчёту, предложи последовательность шагов.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-05", "text": "Давай распишем подготовку презентации на подзадачи.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-06", "text": "Из чего состоит подготовка к защите диплома? Хочу список этапов.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-07", "text": "Нужно организовать поездку, сделай план по пунктам.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-08", "text": "Хочу разобрать огромный список документов по нескольким шагам.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-09", "text": "Предложи подзадачи для ремонта велосипеда.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-10", "text": "Помоги структурировать проект по разработке приложения в несколько этапов.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-break_down_task-11", "text": "Я всё откладываю оформление портфолио, разбей это на маленькие задания.", "intent": "BREAK_DOWN_TASK", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-00", "text": "Подскажи, какая столица у Бразилии?", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-01", "text": "А что такое квантовая запутанность простыми словами?", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-02", "text": "Расскажи мне короткую шутку про программистов.", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-03", "text": "Сколько океанов на планете Земля?", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-04", "text": "Какой фильм посоветуешь посмотреть вечером?", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-05", "text": "Хочу разобраться, почему зимой холоднее, чем летом.", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-06", "text": "Поможешь перевести фразу с английского на русский?", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-07", "text": "Придумай загадку для ребёнка.", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-08", "text": "Кто написал роман «Обломов»?", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-09", "text": "Подскажи, чем отличается акустика от электроники.", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-10", "text": "Объясни, как работает солнечная батарея.", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
+{"id": "manual-unknown-11", "text": "А правда, что осьминоги очень умные?", "intent": "UNKNOWN", "slots": [], "source": "manual_authored_holdout"}
